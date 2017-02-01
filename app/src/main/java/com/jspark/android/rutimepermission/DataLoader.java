@@ -63,33 +63,27 @@ public class DataLoader {
                         phoneNum = cursor.getString(idx).substring(0, 2) + "-" +
                                 cursor.getString(idx).substring(2, 6) + "-" +
                                 cursor.getString(idx).substring(6);
-                        Log.w("phoneNumber", "집전화");
                     } else {
                         phoneNum = cursor.getString(idx).substring(0,3) +"-" +
                                 cursor.getString(idx).substring(3,6)+"-"+
                                 cursor.getString(idx).substring(6);
-                        Log.w("phoneNumber", "옛날폰전화");
                     }
                 } else if(cursor.getString(idx).length()>10) {
                     if (cursor.getString(idx).startsWith("//")) {
                         phoneNum = cursor.getString(idx).substring(2, 5) + "-" +
                                 cursor.getString(idx).substring(5, 9) + "-" +
                                 cursor.getString(idx).substring(9);
-                        Log.w("phoneNumber", "//포함전화");
                     } else if(!(cursor.getString(idx).contains("-"))) {
                         phoneNum = cursor.getString(idx).substring(0, 3) + "-" +
                                 cursor.getString(idx).substring(3, 7) + "-" +
                                 cursor.getString(idx).substring(7);
-                        Log.w("phoneNumber", "-포함전화");
                     } else {
                         phoneNum = cursor.getString(idx);
-                        Log.w("phoneNumber", "일반전화");
                     }
                 } else if(cursor.getString(idx).length()==9) {
                     phoneNum = cursor.getString(idx).substring(0, 2) + "-" +
                             cursor.getString(idx).substring(2, 5) + "-" +
                             cursor.getString(idx).substring(5);
-                    Log.w("phoneNumber", "집전화");
                 } else {
                     phoneNum = "";
                 }
